@@ -38,9 +38,10 @@ class Animal
     private $animal_description;
 
     /**
-     * @ORM\OneToOne(targetEntity=ZooPosition::class)
+     * One Animal has One ZooPosition.
+     * @ORM\OneToOne(targetEntity="ZooPosition")
      */
-    public $animal_position;
+    private $animal_zooposition;
 
     public function getId(): ?int
     {
@@ -71,14 +72,14 @@ class Animal
         return $this;
     }
 
-    public function getAnimalPosition(): ?ZooPosition
+    public function getAnimalZooPosition(): ?ZooPosition
     {
-        return $this->animal_position;
+        return $this->animal_zooposition;
     }
 
-    public function setAnimalPosition(?ZooPosition $animal_position): self
+    public function setAnimalZooPosition(?ZooPosition $animal_zooposition): self
     {
-        $this->animal_position = $animal_position;
+        $this->animal_zooposition = $animal_zooposition;
 
         return $this;
     }
